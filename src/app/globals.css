@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap');
+
+:root {
+    --bg:      #0e0e0e;
+    --bg2:     #161616;
+    --bg3:     #1e1e1e;
+    --border:  rgba(255, 255, 255, 0.07);
+    --border2: rgba(255, 255, 255, 0.12);
+    --text:    #f0ede8;
+    --muted:   #6b6b6b;
+    --accent:  #d4a853;
+    --accent2: #e8c97e;
+    --red:     #ff6b6b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+}
+
+/* ── REGISTER ── */
+
+.register-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.register-left {
+    width: 42%;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.register-left::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    left: -80px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 168, 83, 0.07) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.register-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.register-headline {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    line-height: 1.15;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+}
+
+.register-headline em {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.register-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 260px;
+}
+
+.register-footer {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+}
+
+.register-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+}
+
+.register-form-wrap {
+    width: 100%;
+    max-width: 380px;
+}
+
+/* ── SHARED: TOPBAR ── */
+
+.topbar {
+    border-bottom: 1px solid var(--border);
+    padding: 0 3rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.topbar-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+}
+
+.topbar-route {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+}
+
+.topbar-link {
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    padding: 7px 16px;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.topbar-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ── SHARED: FIELDS ── */
+
+.form-section-label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+.field {
+    margin-bottom: 1.25rem;
+}
+
+.field label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+.field input,
+.field textarea {
+    width: 100%;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 11px 14px;
+    font-size: 13px;
+    font-family: 'DM Mono', monospace;
+    color: var(--text);
+    letter-spacing: 0.02em;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+    color: var(--muted);
+}
+
+.field input:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--bg3);
+}
+
+.field input.error,
+.field textarea.error {
+    border-color: var(--red);
+}
+
+.field textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+}
+
+.field-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.error-msg {
+    font-size: 11px;
+    color: var(--red);
+    margin-top: 5px;
+    letter-spacing: 0.02em;
+}
+
+/* ── BUTTONS ── */
+
+.btn-primary {
+    width: 100%;
+    margin-top: 0.75rem;
+    background: var(--accent);
+    color: #0e0e0e;
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover   { background: var(--accent2); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 4px;
+    padding: 11px 22px;
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+    border-color: var(--border2);
+    color: var(--text);
+}
+
+.btn-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 0.5rem;
+}
+
+.btn-row .btn-primary {
+    margin-top: 0;
+    width: auto;
+    flex: 1;
+    padding: 11px 28px;
+}
+
+/* ── POSTS PAGE ── */
+
+.posts-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.posts-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 3rem;
+}
+
+.posts-center {
+    text-align: center;
+    max-width: 560px;
+}
+
+.posts-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+}
+
+.posts-date {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    font-style: italic;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    word-break: break-all;
+}
+
+.posts-note {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.posts-note code {
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+}
+
+.create-big-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border2);
+    color: var(--text);
+    padding: 14px 28px;
+    border-radius: 4px;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    transition: all 0.2s;
+}
+
+.create-big-link:hover {
+    background: var(--bg3);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ── CREATE PAGE ── */
+
+.create-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 3rem;
+}
+
+.create-wrap {
+    width: 100%;
+    max-width: 540px;
+}
+
+.back-link {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 2.5rem;
+    transition: color 0.15s;
+    font-family: 'DM Mono', monospace;
+}
+
+.back-link:hover { color: var(--text); }
+
+.create-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+}
+
+.create-subtitle {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+}
+
+.create-subtitle code {
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+}
