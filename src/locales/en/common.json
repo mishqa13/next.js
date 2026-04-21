@@ -1,0 +1,27 @@
+{
+  "nav": {
+    "posts": "Posts",
+    "createPost": "New post"
+  },
+  "posts": {
+    "title": "Posts",
+    "subtitle": "Page refreshes on every visit",
+    "lastUpdated": "Last updated",
+    "templateNote_text": "Date recalculates on every navigation through",
+    "writePost": "Write a post",
+    "postsCount_one": "{{count}} post",
+    "postsCount_other": "{{count}} posts"
+  },
+  "create": {
+    "title": "New post",
+    "subtitle": "POST → jsonplaceholder.typicode.com/posts",
+    "backLink": "← /posts",
+    "titleField": "Title",
+    "bodyField": "Body",
+    "titlePlaceholder": "Enter post title",
+    "bodyPlaceholder": "Post text...",
+    "cancel": "Cancel",
+    "publish": "Publish →",
+    "publishing": "Sending..."
+  }
+}

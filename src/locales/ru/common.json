@@ -1,0 +1,28 @@
+{
+  "nav": {
+    "posts": "Посты",
+    "createPost": "Новый пост"
+  },
+  "posts": {
+    "title": "Посты",
+    "subtitle": "Страница обновляется при каждом визите",
+    "lastUpdated": "Последнее обновление",
+    "templateNote_text": "Дата пересчитывается при каждом переходе через",
+    "writePost": "Написать пост",
+    "postsCount_one": "{{count}} пост",
+    "postsCount_few": "{{count}} поста",
+    "postsCount_many": "{{count}} постов"
+  },
+  "create": {
+    "title": "Новый пост",
+    "subtitle": "POST → jsonplaceholder.typicode.com/posts",
+    "backLink": "← /posts",
+    "titleField": "Заголовок",
+    "bodyField": "Содержание",
+    "titlePlaceholder": "Введите заголовок поста",
+    "bodyPlaceholder": "Текст поста...",
+    "cancel": "Отмена",
+    "publish": "Опубликовать →",
+    "publishing": "Отправка..."
+  }
+}
